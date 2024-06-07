@@ -3,6 +3,7 @@
 import os
 from cvzone.HandTrackingModule import HandDetector
 import cv2
+import numpy as np
 
 cap = cv2.VideoCapture(0)
 
@@ -52,7 +53,7 @@ for imgIcons in listIconsPath:
 
 # Resize the images to match the webcam feed
 for imgIcons in listIcons:
-    IconsImageResized.append(cv2.resize(imgIcons, (94, 94)))
+    IconsImageResized.append(cv2.resize(imgIcons, (48, 54)))
 
 # for changing modes__________________________________________________________
 
@@ -147,11 +148,11 @@ while True:
 
     # Display the icons at the bottom of the screen
     if selectionList[0] != -1:
-        imgBackground_copy[535:629, 60:154] = IconsImageResized[selectionList[0]-1]
+        imgBackground_copy[554:608, 83:131] = IconsImageResized[selectionList[0]-1]
     if selectionList[1] != -1:
-        imgBackground_copy[535:629, 302:396] = IconsImageResized[2+selectionList[1]]
+        imgBackground_copy[554:608, 326:374] = IconsImageResized[2+selectionList[1]]
     if selectionList[2] != -1:
-        imgBackground_copy[535:629, 536:630] = IconsImageResized[5+selectionList[2]]
+        imgBackground_copy[554:608, 560:608] = IconsImageResized[5+selectionList[2]]
 
     # Display the image
     cv2.imshow("Background", imgBackground_copy)
